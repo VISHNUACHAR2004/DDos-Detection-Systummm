@@ -1,0 +1,27 @@
+venv
+data/processed
+pycache/
+
+__pycache__
+*.pyc
+data/all_data_combined.csv
+data/*.csv
+*.csv
+data/all_data_multiclass.csv
+data/final_multiclass_data.csv
+data/final_cleaned_data.csv
+data/final/entropy_data.csv
+data/
+data/*.npy
+models/*.pkl
+data
+# Large datasets
+data/*.csv
+data/*.parquet
+
+# Optional
+*.pkl
+*.h5
+backup.git
+
+bfg-1.15.0.jar
