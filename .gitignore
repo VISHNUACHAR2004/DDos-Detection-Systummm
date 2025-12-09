@@ -25,3 +25,4 @@ data/*.parquet
 backup.git
 
 bfg-1.15.0.jar
+logs
