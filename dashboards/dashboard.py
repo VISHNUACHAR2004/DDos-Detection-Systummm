@@ -32,6 +32,14 @@ st.markdown("""
     color: #00ff9f !important;
 }
 
+/* Increase table header font size */
+.stDataFrame thead tr th,
+.stDataFrame thead th div {
+    font-size: 100px !important;
+    font-weight: bold !important;
+    color: #000000 !important;
+}
+
 
 /* Increase default font sizes */
 html, body, [class*="css"]  {
@@ -150,3 +158,6 @@ while True:
 
         # Auto-refresh every 1 second
         time.sleep(1)
+
+
+jjj
