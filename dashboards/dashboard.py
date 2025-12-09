@@ -8,6 +8,47 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+
+/* Increase default font sizes */
+html, body, [class*="css"]  {
+    font-size: 35px !important;
+}
+
+/* Make table text bigger */
+.dataframe tbody tr td {
+    font-size: 88px !important;
+}
+.dataframe thead tr th {
+    font-size: 50px !important;
+    font-weight: bold !important;
+}
+
+/* Improve section headers */
+h1, h2, h3, h4 {
+    font-size: 78px !important;
+    font-weight: 900 !important;
+}
+
+/* Center titles */
+h1 {
+    text-align: center;
+}
+
+/* Clean pie chart padding */
+.block-container {
+    padding-top: 1rem;
+}
+
+/* Bold labels inside app */
+label, .stText {
+    font-size: 20px !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 st.title("🚨 Real-Time DDoS Attack Monitoring Dashboard")
 
 # File paths (adjust if needed)
