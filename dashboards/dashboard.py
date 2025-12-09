@@ -10,10 +10,32 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+<style>
+
+/* TOP MOST WRAPPER */
+.stAppViewContainer {
+    background-color: #000000 !important;
+}
+
+/* MAIN APP BACKGROUND */
+.stApp {
+    background-color: #000000 !important;
+}
+            /* --- Make all text neon green --- */
+*, h1, h2, h3, h4, p, label, div {
+    color: #00ff9f !important;
+}
+
+/* HEADER / TOOLBAR (RUN, STOP, DEPLOY) */
+.st-emotion-cache-12fmjuu, header, .st-emotion-cache-18ni7ap {
+    background-color: #000000 !important;
+    color: #00ff9f !important;
+}
+
 
 /* Increase default font sizes */
 html, body, [class*="css"]  {
-    font-size: 35px !important;
+    font-size: 65px !important;
 }
 
 /* Make table text bigger */
@@ -27,7 +49,7 @@ html, body, [class*="css"]  {
 
 /* Improve section headers */
 h1, h2, h3, h4 {
-    font-size: 78px !important;
+    font-size: 120px !important;
     font-weight: 900 !important;
 }
 
@@ -40,6 +62,12 @@ h1 {
 .block-container {
     padding-top: 1rem;
 }
+fig, ax = plt.subplots(figsize=(2, 2))  # smaller pie chart
+traffic_df["Prediction"].value_counts().plot.pie(
+    autopct="%1.1f%%",
+    ax=ax
+)
+
 
 /* Bold labels inside app */
 label, .stText {
@@ -86,13 +114,23 @@ while True:
         # Pie Chart
         st.subheader("📌 Attack Distribution")
         if len(traffic_df) > 0:
-            fig, ax = plt.subplots()
-            traffic_df["Prediction"].value_counts().plot.pie(
+            counts = traffic_df["Prediction"].value_counts()
+
+            fig, ax = plt.subplots(figsize=(1, 1))  # small pie chart
+
+            # Draw pie using Pandas for category labels
+            pie = counts.plot.pie(
                 autopct="%1.1f%%",
-                figsize=(4, 4),
-                ax=ax
+                ax=ax,
+                textprops={'fontsize': 3}  # reduce percentage + label size
             )
+
+            # Reduce default label size further
+            for label in ax.texts:
+                label.set_fontsize(3)
+
             st.pyplot(fig)
+
         else:
             st.write("Waiting for data...")
 
